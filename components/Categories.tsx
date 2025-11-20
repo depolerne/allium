@@ -108,7 +108,7 @@ export default function Categories() {
 
               {hasDropdown && openKey === c && (
                 <div
-                  className="absolute left-0 top-full mt-2 z-30 w-56 rounded-xl border border-[var(--accent-strong)]/60 bg-[var(--background)] shadow-lg p-2"
+                  className="absolute left-0 top-full mt-2 z-30 w-56 rounded-xl border border-[var(--accent-strong)]/60 bg-[var(--buy-button-bg)] shadow-lg p-2"
                   onMouseEnter={cancelClose}
                   onMouseLeave={scheduleClose}
                 >
