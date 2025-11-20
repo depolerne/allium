@@ -74,7 +74,7 @@ export default function Categories() {
         </button>
       </div> */}
 
-      <div className="flex items-stretch gap-2 justify-between">
+      <div className="grid grid-cols-2 gap-2 sm:flex sm:items-stretch sm:gap-2 sm:justify-between">
         {baseCategories.map((c) => {
           const active = isCatActive(c);
           const hasDropdown = c === "decorations" || c === "gifts";

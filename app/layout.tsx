@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import Footer from "../components/Footer";
@@ -12,6 +12,11 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   title: "allium",
   description: "Интернет-магазин цветов allium — лаконичный и красивый",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

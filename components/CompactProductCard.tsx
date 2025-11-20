@@ -36,7 +36,7 @@ export default function CompactProductCard({ product }: { product: Product }) {
         </button>
       </div>
       <div className="p-2">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
           <div className="flex-1 text-xs truncate">{product.title}</div>
           <span className="text-sm font-semibold shrink-0">{product.price} ₼</span>
           <button

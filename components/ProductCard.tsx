@@ -36,7 +36,7 @@ export default function ProductCard({ product }: { product: Product }) {
         </button>
       </div>
       <div className="p-3">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap sm:flex-nowrap">
           <h3 className="flex-1 text-sm truncate">{product.title}</h3>
           <span className="text-base font-semibold shrink-0">{product.price} ₼</span>
           <button

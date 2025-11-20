@@ -87,16 +87,16 @@ export default function HeroShowcase() {
 
   return (
     <section className="mx-auto max-w-6xl px-4 mt-6">
-      <div className="relative overflow-hidden rounded-2xl  bg-[var(--background)] min-h-[16rem] md:min-h-[360px]" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+      <div className="relative overflow-hidden rounded-2xl  bg-[var(--background)] h-[350px] sm:h-[420px] md:h-[320px]" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         {slides.map((s, i) => (
           <div
             key={s.id}
             className={`absolute inset-0 transition-opacity duration-500 ${index === i ? "opacity-100" : "opacity-0"}`}
           >
-            <div className="flex">
-              <div className="relative w-[50%] p-14 md:p-14 flex flex-col justify-center">
-                <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-[1.1]">{s.title}</h1>
-                <p className="mt-2 text-sm md:text-base text-[var(--accent)]">{s.caption}</p>
+            <div className="flex flex-col md:flex-row">
+              <div className="relative w-full md:w-[50%]  md:h-[320px] p-4 md:p-14 flex flex-col justify-center items-center md:items-start">
+                <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-[1.1] text-center md:text-left">{s.title}</h1>
+                <p className="mt-2 text-sm md:text-base text-[var(--accent)] text-center md:text-left">{s.caption}</p>
                 <div className="mt-4">
                   <button
                     onClick={() => goToCatalog()}
@@ -106,8 +106,8 @@ export default function HeroShowcase() {
                   </button>
                 </div>
               </div>
-              <div className="relative w-full">
-                <Image src={s.image} alt={s.title} width={960} height={720} className="w-full h-64 md:h-[360px] object-cover fit-cover transition-transform duration-500 hover:scale-[1.02]" priority />
+              <div className="relative w-full h-full">
+                <Image src={s.image} alt={s.title} width={960} height={720} className="w-full h-full object-cover fit-cover transition-transform duration-500 hover:scale-[1.02]" priority />
                 {/* <div className="absolute inset-0 bg-[var(--hero-tint)] pointer-events-none" /> */}
               </div>
             </div>
