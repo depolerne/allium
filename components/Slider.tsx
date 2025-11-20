@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 
 const slides = [
   {
@@ -36,26 +35,26 @@ export default function Slider() {
               className={`${s.bg} relative min-w-full flex items-center justify-between px-8 py-8`}
             >
               {/* Мягкие фоновые пятна */}
-              <div className="absolute -top-12 -left-12 w-56 h-56 rounded-full opacity-25  bg-[#C8BFB4]" />
-              <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full opacity-20  bg-[#C8BFB4]" />
+              <div className="absolute -top-12 -left-12 w-56 h-56 rounded-full bg-[var(--accent-strong)]/25" />
+              <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-[var(--accent-strong)]/20" />
 
               <div className="relative z-10 max-w-xl">
-                <h2 className="text-2xl text-white md:text-3xl font-bold tracking-tight animate-fadeInUp">
+                <h2 className="text-2xl text-[var(--foreground)] md:text-3xl font-bold tracking-tight animate-fadeInUp">
                   {s.title}
                 </h2>
-                <p className="mt-2 text-sm md:text-base text-zinc-300 animate-fadeInUp" style={{animationDelay: "80ms"}}>
+                <p className="mt-2 text-sm md:text-base text-[var(--accent)] animate-fadeInUp" style={{animationDelay: "80ms"}}>
                   {s.caption}
                 </p>
                 <div className="mt-4 flex items-center gap-3">
                   <a
                     href="#catalog"
-                    className="rounded-xl bg-black text-white px-4 py-2 text-sm hover:bg-zinc-800 transition shadow-sm"
+                    className="rounded-xl bg-[var(--buy-button-bg)] text-[var(--foreground)] px-4 py-2 text-sm hover:opacity-90 transition shadow-sm"
                   >
                     Смотреть каталог
                   </a>
                   <a
                     href="#explore"
-                    className="rounded-xl border border-zinc-700 bg-zinc-900 text-zinc-200 px-4 py-2 text-sm hover:bg-zinc-800 transition"
+                    className="rounded-xl border border-[var(--accent-strong)] bg-[var(--background)] text-[var(--foreground)] px-4 py-2 text-sm hover:bg-[var(--accent-strong)]/20 transition"
                   >
                     Узнать больше
                   </a>

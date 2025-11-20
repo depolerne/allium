@@ -14,7 +14,7 @@ export default function FavoritesPage() {
       <div className="mx-auto max-w-6xl px-4 py-6">
         <h1 className="text-2xl font-semibold mb-4">Избранное</h1>
         {favProducts.length === 0 ? (
-          <p className="text-zinc-300">Список избранного пуст.</p>
+          <p className="text-[var(--accent)]">Список избранного пуст.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {favProducts.map((p) => (

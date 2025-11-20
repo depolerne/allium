@@ -1,30 +1,24 @@
 "use client";
 import Link from "next/link";
 import { Heart, Search, ShoppingBag, User, Sun, Moon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useShopStore } from "../store/useShopStore";
 
 export default function Header() {
   const { setSearch, favorites, cart } = useShopStore();
   const favCount = Array.isArray(favorites) ? favorites.length : 0;
   const cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
-  const [theme, setTheme] = useState<string | null>(null);
-
-  useEffect(() => {
-    // прочитать текущую тему
-    const current = document.documentElement.getAttribute("data-theme") || "dark";
-    setTheme(current);
-  }, []);
+  const [theme, setTheme] = useState<string>(() => (typeof document !== "undefined" && document.documentElement.getAttribute("data-theme")) || "light");
 
   const toggleTheme = () => {
     const next = theme === "light" ? "dark" : "light";
     document.documentElement.setAttribute("data-theme", next);
-    try { localStorage.setItem("allium-theme", next); } catch (_) {}
+    try { localStorage.setItem("allium-theme", next); } catch {}
     setTheme(next);
   };
 
   return (
-    <header className="sticky top-0 z-20 bg-[#C8BFB4] backdrop-blur border-b border-[var(--accent-strong)]/60">
+    <header className="sticky top-0 z-20 bg-[var(--background)] backdrop-blur border-b border-[var(--accent-strong)]/60">
       <div className="mx-auto max-w-6xl px-4 py-3 flex items-center gap-4 text-[var(--foreground)]">
         <Link href="/" className="text-2xl font-semibold tracking-tight  hover:opacity-90 transition">
           allium

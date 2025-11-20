@@ -33,28 +33,28 @@ export default function HeroShowcase() {
       id: "h1",
       title: "Скидки до 30% на выбранные товары",
       caption: "Букеты, вазы и подарки",
-      image: "/6.webp",
+      image: "/5.webp",
       category: "flowers",
     },
     {
       id: "h2",
       title: "Букеты недели",
       caption: "Нежные композиции со скидкой",
-      image: "/6.webp",
+      image: "/5.webp",
       category: "bouquets",
     },
     {
       id: "h3",
       title: "Вазы и декоры",
       caption: "Минимализм и стиль",
-      image: "/6.webp",
+      image: "/5.webp",
       category: "vases",
     },
     {
       id: "h4",
       title: "Подарочные наборы",
       caption: "Удобно и красиво",
-      image: "/6.webp",
+      image: "/5.webp",
       category: "gifts",
     },
   ];
@@ -87,7 +87,7 @@ export default function HeroShowcase() {
 
   return (
     <section className="mx-auto max-w-6xl px-4 mt-6">
-      <div className="relative overflow-hidden rounded-2xl  bg-white/60 min-h-[16rem] md:min-h-[360px]" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+      <div className="relative overflow-hidden rounded-2xl  bg-[var(--background)] min-h-[16rem] md:min-h-[360px]" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         {slides.map((s, i) => (
           <div
             key={s.id}

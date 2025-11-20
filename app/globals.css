@@ -2,7 +2,7 @@
 
 :root {
   /* Тёмная, но не чёрная: глубокие серые оттенки */
-  --background: #0f1115; /* близко к zinc-950 */
+  --background: #0f1115ea; /* близко к zinc-950 */
   --foreground: #e5e7eb; /* zinc-200 для текста */
   --accent: #9ca3afb9;      /* zinc-400 как нейтральный акцент */
   --accent-strong: #71717a; /* zinc-500 для активных состояний */
@@ -25,7 +25,7 @@ html { scroll-behavior: smooth; }
 
 /* Светлая (чуть серая, не белая) тема */
 [data-theme="light"] {
-  --background: #f3f4f659; /* zinc-100 */
+  --background: #d1c1aead; /* zinc-100 */
   --foreground: #1f2937; /* zinc-800 */
   --accent: #000000a9;     /* zinc-500 */
   --accent-strong: #4b556369; /* zinc-600 */
@@ -50,15 +50,7 @@ html { scroll-behavior: smooth; }
 /* Сайт всегда в тёмной теме, без цветного акцента */
 
 body {
-
-background: #C8BFB4 !important;
-/* background: #c1beba; */
-
-
-  /* background: url('/test22.png');
-  background-size: cover;
-background-repeat: no-repeat;
-background-position: bottom; */
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-raleway), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
 }
