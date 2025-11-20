@@ -1,0 +1,68 @@
+"use client";
+import Header from "../../components/Header";
+import Image from "next/image";
+import { useShopStore } from "../../store/useShopStore";
+
+export default function CartPage() {
+  const { products, cart, addToCart, removeFromCart } = useShopStore();
+  const entries = Object.entries(cart);
+  const items = entries.map(([id, qty]) => ({
+    product: products.find((p) => p.id === id)!,
+    qty,
+  }));
+  const total = items.reduce((sum, i) => sum + i.product.price * i.qty, 0);
+
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <div className="mx-auto max-w-6xl px-4 py-6">
+        <h1 className="text-2xl font-semibold mb-4">Корзина</h1>
+        {items.length === 0 ? (
+          <p className="text-zinc-300">Корзина пуста.</p>
+        ) : (
+          <div className="space-y-4">
+            {items.map(({ product, qty }) => (
+              <div
+                key={product.id}
+                className="flex items-center gap-4 rounded-xl border border-zinc-700 p-3"
+              >
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  width={80}
+                  height={100}
+                  className="rounded-lg object-cover h-20 w-16"
+                />
+                <div className="flex-1">
+                  <div className="font-medium">{product.title}</div>
+                  <div className="text-sm text-zinc-300">{product.price} ₼</div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => removeFromCart(product.id)}
+                    className="rounded-lg border px-2 py-1"
+                  >
+                    −
+                  </button>
+                  <span className="w-8 text-center">{qty}</span>
+                  <button
+                    onClick={() => addToCart(product.id)}
+                    className="rounded-lg border px-2 py-1"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            ))}
+            <div className="flex items-center justify-between border-t pt-4">
+              <div className="text-lg font-semibold">Итого: {total} ₼</div>
+              <button className="rounded-xl bg-black text-white px-4 py-2">
+                Оформить заказ
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
