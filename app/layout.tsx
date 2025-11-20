@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" suppressHydrationWarning data-theme="dark">
+    <html lang="ru" suppressHydrationWarning data-theme="light">
       <body className={`${raleway.variable} antialiased`}>
         {/* Инициализация темы до гидратации: читаем localStorage и ставим data-theme */}
         <script dangerouslySetInnerHTML={{

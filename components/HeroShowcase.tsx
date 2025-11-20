@@ -14,12 +14,12 @@ type MiniTile = {
 };
 
 const miniTiles: MiniTile[] = [
-  { title: "Цветы", image: "/1.jpg", action: { type: "category", value: "flowers" } },
-  { title: "Вазы", image: "/2.jpeg", action: { type: "category", value: "vases" } },
-  { title: "Декор", image: "/3.jpg", action: { type: "category", value: "decorations" } },
-  { title: "Подарки", image: "/4.webp", action: { type: "category", value: "gifts" } },
-  { title: "Сеты", image: "/3.webp", action: { type: "category", value: "sets" } },
-  { title: "Букеты", image: "/1.webp", action: { type: "category", value: "bouquets" } },
+  { title: "Цветы", image: "/6.webp", action: { type: "category", value: "flowers" } },
+  { title: "Вазы", image: "/vase.webp", action: { type: "category", value: "vases" } },
+  { title: "Декор", image: "/dekor.jpg", action: { type: "category", value: "decorations" } },
+  { title: "Подарки", image: "/podarok.webp", action: { type: "category", value: "gifts" } },
+  { title: "Сеты", image: "/sets.jpg", action: { type: "category", value: "sets" } },
+  { title: "Букеты", image: "/bukets.webp", action: { type: "category", value: "bouquets" } },
 ];
 
 export default function HeroShowcase() {
@@ -33,28 +33,28 @@ export default function HeroShowcase() {
       id: "h1",
       title: "Скидки до 30% на выбранные товары",
       caption: "Букеты, вазы и подарки",
-      image: "/main.jpg",
+      image: "/6.webp",
       category: "flowers",
     },
     {
       id: "h2",
       title: "Букеты недели",
       caption: "Нежные композиции со скидкой",
-      image: "/1.webp",
+      image: "/bukets.webp",
       category: "bouquets",
     },
     {
       id: "h3",
       title: "Вазы и декоры",
       caption: "Минимализм и стиль",
-      image: "/2.webp",
+      image: "/vase.webp",
       category: "vases",
     },
     {
       id: "h4",
       title: "Подарочные наборы",
       caption: "Удобно и красиво",
-      image: "/4.webp",
+      image: "/podarok.webp",
       category: "gifts",
     },
   ];
