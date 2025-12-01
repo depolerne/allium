@@ -98,7 +98,7 @@ export default function Header() {
             onClick={toggleTheme}
             aria-label="Переключить тему"
             title="Переключить тему"
-            className="hidden sm:inline-flex items-center gap-2 rounded-xl px-2 sm:px-3 py-2 hover:bg-[var(--accent-strong)]/20 transition text-[var(--foreground)]"
+            className="inline-flex items-center gap-2 rounded-xl px-2 sm:px-3 py-2 hover:bg-[var(--accent-strong)]/20 transition text-[var(--foreground)]"
           >
             {theme === "light" ? <Sun size={20} /> : <Moon size={20} />}
             <span className="hidden sm:inline text-sm">{theme === "light" ? "Светлая" : "Тёмная"}</span>

@@ -13,7 +13,7 @@ export default function HeroShowcase() {
   const slides = [
     {
       id: "h1",
-      title: "Скидки до 30% на выбранные товары",
+      title: "Скидки до 30%",
       caption: "Букеты, вазы и подарки",
       image: "/5.webp",
       category: "flowers",
