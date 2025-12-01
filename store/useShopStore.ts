@@ -1,7 +1,7 @@
 "use client";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { Product, Category, Recipient, Occasion } from "../lib/types";
+import type { Product, Category, Recipient, Occasion, User } from "../lib/types";
 import { products as seed } from "../data/products";
 
 type State = {
@@ -15,6 +15,7 @@ type State = {
   maxPrice: number;
   favorites: string[]; // product ids
   cart: Record<string, number>; // product id -> qty
+  user: User | null;
 };
 
 type Actions = {
@@ -30,6 +31,9 @@ type Actions = {
   toggleFavorite: (id: string) => void;
   addToCart: (id: string) => void;
   removeFromCart: (id: string) => void;
+  login: (email: string) => void;
+  logout: () => void;
+  register: (name: string, email: string) => void;
 };
 
 export const useShopStore = create<State & Actions>()(
@@ -46,6 +50,7 @@ export const useShopStore = create<State & Actions>()(
       priceRange: [Math.min(...seed.map((p) => p.price)), Math.max(...seed.map((p) => p.price))],
       favorites: [],
       cart: {},
+      user: null,
       setSearch: (q) => set({ search: q }),
       toggleCategory: (c) => {
         const arr = get().selectedCategories;
@@ -101,27 +106,40 @@ export const useShopStore = create<State & Actions>()(
         else cart[id] = cart[id] - 1;
         set({ cart });
       },
+      login: (email) => {
+        const current = get().user;
+        const next: User = current?.email === email ? current! : { id: "local", name: "Гость", email };
+        set({ user: next });
+      },
+      logout: () => set({ user: null }),
+      register: (name, email) => {
+        const next: User = { id: "local", name, email };
+        set({ user: next });
+      },
     }),
     {
       name: "allium-store",
-      merge: (persisted: any, current) => {
-        const sc = persisted?.selectedCategories;
-        const fav = persisted?.favorites;
-        const sr = persisted?.selectedRecipients;
-        const so = persisted?.selectedOccasions;
-        const pr = persisted?.priceRange;
+      merge: (persisted: unknown, current) => {
+        const p = persisted as Partial<State>;
+        const sc = p?.selectedCategories;
+        const fav = p?.favorites;
+        const sr = p?.selectedRecipients;
+        const so = p?.selectedOccasions;
+        const pr = p?.priceRange as [number, number] | undefined;
+        const u = p?.user as User | undefined;
         return {
           // Prefer current seed for products to reflect latest data updates
           ...current,
-          ...persisted,
+          ...p,
           products: current.products,
           selectedCategories: Array.isArray(sc) ? (sc as Category[]) : [],
           favorites: Array.isArray(fav) ? (fav as string[]) : [],
           selectedRecipients: Array.isArray(sr) ? (sr as Recipient[]) : [],
           selectedOccasions: Array.isArray(so) ? (so as Occasion[]) : [],
+          user: u ? u : null,
           priceRange:
             Array.isArray(pr) && pr.length === 2
-              ? (pr as [number, number])
+              ? pr
               : [current.minPrice, current.maxPrice],
         } as State & Actions;
       },

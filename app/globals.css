@@ -19,6 +19,10 @@
   --radius-md: 12px;
   --radius-sm: 8px;
   --tile-tint: rgba(200, 191, 180, 0.18);
+  --panel-bg: #15181d;
+  /* Стили для брендового скроллбара в тёмной теме */
+  --scroll-track: rgba(255, 255, 255, 0.08);
+  --scroll-thumb: var(--accent-strong);
 }
 
 html { scroll-behavior: smooth; }
@@ -37,6 +41,10 @@ html { scroll-behavior: smooth; }
   /* Пастельная подложка для Hero в светлой теме */
   --hero-tint: rgba(246, 237, 229, 0.35);
   --brand-gradient: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 50%, #9ca3af 100%);
+  /* Стили для брендового скроллбара в светлой теме */
+  --scroll-track: rgba(0, 0, 0, 0.08);
+  --scroll-thumb: var(--accent-strong);
+  --panel-bg: #d1c1ae;
 }
 
 @theme inline {
@@ -92,6 +100,35 @@ body {
 
 .brand-gradient-text { background:#C8BFB4; -webkit-background-clip: text; background-clip: text; color: transparent; }
 .bg-brand { background-image: var(--brand-gradient); }
+
+/* Брендовый скроллбар — горизонтальный и вертикальный */
+.brand-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+.brand-scrollbar::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.brand-scrollbar::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+  border-radius: 9999px;
+}
+.brand-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.brand-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-strong);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
 
 /* Курсор-указатель для интерактивных элементов */
 button, [role="button"], .cursor-pointer { cursor: pointer; }

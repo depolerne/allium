@@ -16,14 +16,14 @@ export default function Trending() {
   };
   return (
     <section className="mx-auto max-w-6xl px-4 mt-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold">Тренды недели</h2>
+      <div className="flex items-center justify-end">
+        {/* <h2 className="text-xl font-semibold">Тренды недели</h2> */}
         <div className="inline-flex gap-2">
           <button onClick={() => scrollBy(-1)} className="rounded-full p-2 border border-[var(--accent-strong)]/60 bg-[var(--background)] hover:bg-[var(--accent-strong)]/15 transition"><ChevronLeft size={16} /></button>
           <button onClick={() => scrollBy(1)} className="rounded-full p-2 border border-[var(--accent-strong)]/60 bg-[var(--background)] hover:bg-[var(--accent-strong)]/15 transition"><ChevronRight size={16} /></button>
         </div>
       </div>
-      <div ref={trackRef} className="mt-3 overflow-x-auto scroll-smooth pb-4">
+      <div ref={trackRef} className="mt-3 overflow-x-auto scroll-smooth pb-4 brand-scrollbar">
         <div className="flex gap-3">
           {list.map((p) => (
             <CompactProductCard key={p.id} product={p} />

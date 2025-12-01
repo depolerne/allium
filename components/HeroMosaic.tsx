@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useShopStore } from "../store/useShopStore";
+import type { Category } from "../lib/types";
 
 type Tile = {
   id: string;
@@ -36,7 +37,7 @@ export default function HeroMosaic() {
       const ceil = Math.min(maxPrice, b);
       setPriceRange([floor, ceil]);
     } else {
-      toggleCategory(t.action.value as any);
+      toggleCategory(t.action.value as Category);
     }
     goToCatalog();
   };

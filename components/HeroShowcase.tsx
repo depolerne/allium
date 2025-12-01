@@ -1,29 +1,11 @@
 "use client";
 import Image from "next/image";
-import { useShopStore } from "../store/useShopStore";
+ 
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import type { Category } from "../lib/types";
-
-type MiniTile = {
-  title: string;
-  image: string;
-  action:
-    | { type: "category"; value: string }
-    | { type: "price"; value: [number, number] };
-};
-
-const miniTiles: MiniTile[] = [
-  { title: "Цветы", image: "/6.webp", action: { type: "category", value: "flowers" } },
-  { title: "Вазы", image: "/vase.webp", action: { type: "category", value: "vases" } },
-  { title: "Декор", image: "/dekor.jpg", action: { type: "category", value: "decorations" } },
-  { title: "Подарки", image: "/podarok.webp", action: { type: "category", value: "gifts" } },
-  { title: "Сеты", image: "/sets.jpg", action: { type: "category", value: "sets" } },
-  { title: "Букеты", image: "/bukets.webp", action: { type: "category", value: "bouquets" } },
-];
+ 
 
 export default function HeroShowcase() {
-  const { setPriceRange, minPrice, maxPrice, toggleCategory } = useShopStore();
   const [index, setIndex] = useState(0);
   const timer = useRef<number | null>(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -75,15 +57,7 @@ export default function HeroShowcase() {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const applyAction = (a: MiniTile["action"]) => {
-    if (a.type === "price") {
-      const [from, to] = a.value;
-      setPriceRange([Math.max(minPrice, from), Math.min(maxPrice, to)]);
-    } else {
-      toggleCategory(a.value as Category);
-    }
-    goToCatalog();
-  };
+  
 
   return (
     <section className="mx-auto max-w-6xl px-4 mt-6">
@@ -130,27 +104,7 @@ export default function HeroShowcase() {
         </button>
       </div>
 
-      <div className="mt-4">
-        <div className="grid grid-cols-2 sm:grid-cols-6 gap-3">
-          {miniTiles.map((t, idx) => (
-            <button
-              key={idx}
-              onClick={() => applyAction(t.action)}
-              className={`group w-full rounded-2xl overflow-hidden border bg-[var(--background)] transition ${
-                slides[index]?.category === (t.action.type === "category" ? (t.action.value as string) : "")
-                  ? "border-[var(--accent-strong)] bg-[var(--accent-strong)]/10 scale-[1.02]"
-                  : "border-[var(--accent-strong)] hover:bg-[var(--accent-strong)]/10 hover:scale-[1.01]"
-              }`}
-            >
-              <div className="relative">
-                <Image src={t.image} alt={t.title} width={160} height={120} className="w-full h-24 sm:h-28 object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-[var(--tile-tint)] opacity-0 group-hover:opacity-20 transition-opacity" />
-              </div>
-              <div className="px-2 py-2 text-center text-xs">{t.title}</div>
-            </button>
-          ))}
-        </div>
-      </div>
+      
     </section>
   );
 }

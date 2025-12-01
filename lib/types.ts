@@ -32,3 +32,9 @@ export type Product = {
   recipients?: Recipient[];
   occasions?: Occasion[];
 };
+
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+};

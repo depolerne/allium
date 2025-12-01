@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Instagram, Facebook } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -46,9 +47,9 @@ export default function Footer() {
               </a>
             </div>
             <nav className="mt-4 flex flex-wrap justify-end gap-4 text-sm text-[var(--accent)]">
-              <a href="/" className="hover:text-[var(--foreground)] transition">Главная</a>
-              <a href="/favorites" className="hover:text-[var(--foreground)] transition">Избранное</a>
-              <a href="/cart" className="hover:text-[var(--foreground)] transition">Корзина</a>
+              <Link href="/" className="hover:text-[var(--foreground)] transition">Главная</Link>
+              <Link href="/favorites" className="hover:text-[var(--foreground)] transition">Избранное</Link>
+              <Link href="/cart" className="hover:text-[var(--foreground)] transition">Корзина</Link>
             </nav>
           </div>
         </div>

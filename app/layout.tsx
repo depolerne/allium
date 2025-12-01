@@ -32,7 +32,9 @@ export default function RootLayout({
           __html: `(() => { try { const t = localStorage.getItem('allium-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch(_){} })();`
         }} />
         {children}
-        <Footer />
+        <div id="contacts">
+          <Footer />
+        </div>
       </body>
     </html>
   );
