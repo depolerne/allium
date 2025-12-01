@@ -98,12 +98,12 @@ export default function Header() {
             onClick={toggleTheme}
             aria-label="Переключить тему"
             title="Переключить тему"
-            className="inline-flex items-center gap-2 rounded-xl px-2 sm:px-3 py-2 hover:bg-[var(--accent-strong)]/20 transition text-[var(--foreground)]"
+            className="hidden sm:inline-flex items-center gap-2 rounded-xl px-2 sm:px-3 py-2 hover:bg-[var(--accent-strong)]/20 transition text-[var(--foreground)]"
           >
             {theme === "light" ? <Sun size={20} /> : <Moon size={20} />}
             <span className="hidden sm:inline text-sm">{theme === "light" ? "Светлая" : "Тёмная"}</span>
           </button>
-          <div className="relative">
+          <div className="relative hidden sm:block">
             <button
               type="button"
               onClick={() => setLangOpen((v) => !v)}
@@ -194,6 +194,16 @@ export default function Header() {
                   <Link href="/#catalog" className="rounded-xl border border-[var(--accent-strong)]/60 px-4 py-3 hover:bg-[var(--accent-strong)]/10 transition">Каталог</Link>
                   <Link href="/#about" className="rounded-xl border border-[var(--accent-strong)]/60 px-4 py-3 hover:bg-[var(--accent-strong)]/10 transition">О нас</Link>
                   <Link href="/#contacts" className="rounded-xl border border-[var(--accent-strong)]/60 px-4 py-3 hover:bg-[var(--accent-strong)]/10 transition">Контакты</Link>
+                </div>
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <button type="button" onClick={toggleTheme} className="rounded-xl border border-[var(--accent-strong)]/60 px-4 py-3 hover:bg-[var(--accent-strong)]/10 transition">
+                    {theme === "light" ? "Тёмная тема" : "Светлая тема"}
+                  </button>
+                  <div className="sm:col-span-2 flex items-center gap-2 justify-center sm:justify-start">
+                    <button type="button" onClick={() => applyLang("ru")} className={`rounded-xl border border-[var(--accent-strong)]/60 px-3 py-2 ${lang === "ru" ? "bg-[var(--accent-strong)]/15" : "hover:bg-[var(--accent-strong)]/10"}`}>RU</button>
+                    <button type="button" onClick={() => applyLang("en")} className={`rounded-xl border border-[var(--accent-strong)]/60 px-3 py-2 ${lang === "en" ? "bg-[var(--accent-strong)]/15" : "hover:bg-[var(--accent-strong)]/10"}`}>EN</button>
+                    <button type="button" onClick={() => applyLang("az")} className={`rounded-xl border border-[var(--accent-strong)]/60 px-3 py-2 ${lang === "az" ? "bg-[var(--accent-strong)]/15" : "hover:bg-[var(--accent-strong)]/10"}`}>AZ</button>
+                  </div>
                 </div>
                 <div className="mt-4 flex items-center gap-2 justify-center">
                   <Link href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-xl p-2 hover:bg-[var(--accent-strong)]/20 transition" aria-label="Instagram"><Instagram size={20} /></Link>
