@@ -196,9 +196,9 @@ export default function Header() {
                   <Link href="/#contacts" className="rounded-xl border border-[var(--accent-strong)]/60 px-4 py-3 hover:bg-[var(--accent-strong)]/10 transition">Контакты</Link>
                 </div>
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <button type="button" onClick={toggleTheme} className="rounded-xl border border-[var(--accent-strong)]/60 px-4 py-3 hover:bg-[var(--accent-strong)]/10 transition">
+                  {/* <button type="button" onClick={toggleTheme} className="rounded-xl border border-[var(--accent-strong)]/60 px-4 py-3 hover:bg-[var(--accent-strong)]/10 transition">
                     {theme === "light" ? "Тёмная тема" : "Светлая тема"}
-                  </button>
+                  </button> */}
                   <div className="sm:col-span-2 flex items-center gap-2 justify-center sm:justify-start">
                     <button type="button" onClick={() => applyLang("ru")} className={`rounded-xl border border-[var(--accent-strong)]/60 px-3 py-2 ${lang === "ru" ? "bg-[var(--accent-strong)]/15" : "hover:bg-[var(--accent-strong)]/10"}`}>RU</button>
                     <button type="button" onClick={() => applyLang("en")} className={`rounded-xl border border-[var(--accent-strong)]/60 px-3 py-2 ${lang === "en" ? "bg-[var(--accent-strong)]/15" : "hover:bg-[var(--accent-strong)]/10"}`}>EN</button>
