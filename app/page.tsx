@@ -37,7 +37,7 @@ export default function Home() {
     <div className="min-h-screen ">
       <Header />
       <section className="mx-auto max-w-6xl px-0 mt-3">
-        <div className="flex justify-center overflow-x-auto no-scrollbar gap-3 sm:grid sm:grid-cols-6 sm:gap-3 sm:overflow-visible">
+        <div className="flex justify-center overflow-x-auto no-scrollbar gap-2 sm:grid sm:grid-cols-6 sm:gap-3 sm:overflow-visible">
           {tiles.map((t, idx) => (
             <button
               key={idx}
@@ -45,12 +45,12 @@ export default function Home() {
               className="group flex flex-col items-center gap-2 cursor-pointer shrink-0"
               aria-label={t.title}
             >
-              <span className="inline-block rounded-full overflow-hidden border border-[var(--accent-strong)] bg-[var(--accent-strong)]/10 p-1 shadow-md transition group-hover:scale-105">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden">
+              <span className="inline-block rounded-full overflow-hidden border border-[var(--accent-strong)] bg-[var(--accent-strong)]/10 p-0.5 sm:p-1 shadow-md transition group-hover:scale-105">
+                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full overflow-hidden">
                   <Image src={t.image} alt={t.title} width={64} height={64} className="w-full h-full object-cover" />
                 </div>
               </span>
-              <span className="text-xs font-medium text-center text-[var(--foreground)]">{t.title}</span>
+              <span className="text-[11px] sm:text-xs font-medium text-center text-[var(--foreground)]">{t.title}</span>
             </button>
           ))}
         </div>
