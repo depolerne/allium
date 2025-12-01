@@ -92,7 +92,7 @@ export default function Header() {
             className="w-full rounded-xl border border-[var(--accent-strong)]/60 bg-[var(--background)] text-[var(--foreground)] placeholder-[var(--accent)] pl-10 pr-3 h-9 sm:h-10 text-sm outline-none focus:ring-2 focus:ring-[var(--accent-strong)] focus:border-[var(--accent-strong)]/60"
           />
         </div>
-        <nav className="flex items-center gap-3">
+        <nav className="flex items-center gap-2 sm:gap-3">
           <button
             type="button"
             onClick={toggleTheme}
@@ -124,7 +124,7 @@ export default function Header() {
           </div>
           <button
             onClick={openFavorites}
-            className="relative inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-[var(--accent-strong)]/20 transition"
+            className="relative inline-flex items-center gap-2 rounded-xl px-2 sm:px-3 py-2 hover:bg-[var(--accent-strong)]/20 transition"
             title="Избранное"
             aria-haspopup="dialog"
           >
@@ -137,7 +137,7 @@ export default function Header() {
           </button>
           <button
             onClick={openCart}
-            className="relative inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-[var(--accent-strong)]/20 transition"
+            className="relative inline-flex items-center gap-2 rounded-xl px-2 sm:px-3 py-2 hover:bg-[var(--accent-strong)]/20 transition"
             title="Корзина"
             aria-haspopup="dialog"
           >
@@ -150,7 +150,7 @@ export default function Header() {
           </button>
           <Link
             href="/auth"
-            className="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-[var(--accent-strong)]/20 transition"
+            className="inline-flex items-center gap-2 rounded-xl px-2 sm:px-3 py-2 hover:bg-[var(--accent-strong)]/20 transition"
             title="Профиль"
           >
             <User size={20} />
